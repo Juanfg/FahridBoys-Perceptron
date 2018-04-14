@@ -4,7 +4,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,8 +32,7 @@ public class TweetController {
     	double momentum = 0.8;
     	int trainingTime = 1000;
     	
-    	String categoryString = perceptron.simpleWekaSolve(hiddenLayers, learningRate, momentum, trainingTime);
-    	String category = categoryString.substring(40);
+    	String category = perceptron.simpleWekaSolve(hiddenLayers, learningRate, momentum, trainingTime);
     	int categoryInteger = 0;
     	
     	String reducedCat = category.substring(category.length()-22, category.length());

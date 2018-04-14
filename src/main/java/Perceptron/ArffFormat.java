@@ -25,7 +25,6 @@ public class ArffFormat {
 
         for(String word : words){
         	String nuw = word.replace(" ", "");
-        	System.out.println(nuw);
             if(mySet.contains(nuw)){
             	countOfWords++;
                 zero = 1;
@@ -40,6 +39,7 @@ public class ArffFormat {
         result = result.concat("?");
         result = result + System.lineSeparator();
         
+        System.out.println("Insercion al predictor");
         System.out.println(result);
         
         try {

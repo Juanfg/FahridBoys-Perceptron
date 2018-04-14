@@ -16,9 +16,9 @@ public class Perceptron {
 	public static Path currentRelativePath = Paths.get("");
 	public static String currentPath = currentRelativePath.toAbsolutePath().toString();
 
-	static Instances training = null;
-	static Instances testing = null;
-	static Instances predicting = null;
+	public static Instances training = null;
+	public static Instances testing = null;
+	public static Instances predicting = null;
 
 	public static Instances getTrainingSet()
 	{
@@ -72,14 +72,13 @@ public class Perceptron {
 			mlp.setHiddenLayers(hiddenLayers);
 			mlp.buildClassifier(training);
 			
-			Instances predicting = Perceptron.getPredictingSet();
-			Instances predicteddata = new Instances(predicting);
+			Instances predictings = Perceptron.getPredictingSet();
+			Instances predicteddata = new Instances(predictings);
+			predicting = null;
 			
 			// Prediccion de datos
-			for (int i = 0; i < predicting.numInstances(); i++) {
-				double clsLabel = mlp.classifyInstance(predicting.instance(i));
-				predicteddata.instance(i).setClassValue(clsLabel);
-			}
+			double clsLabel = mlp.classifyInstance(predictings.instance(predictings.numInstances() - 1));
+			predicteddata.instance(predictings.numInstances() - 1).setClassValue(clsLabel);
 			
 			// Escritura en archivo
 			BufferedWriter writer = new BufferedWriter(new FileWriter(currentPath+"/ResultadosBancomer.arff"));
