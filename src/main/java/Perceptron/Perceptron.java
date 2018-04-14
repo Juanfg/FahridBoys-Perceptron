@@ -15,7 +15,7 @@ public class Perceptron {
 	public static Instances getTrainingSet()
 	{
 		if(training == null)
-			training = Perceptron.getSetGeneric("C:\\Users\\juanf\\Desktop\\Tweet.arff");
+			training = Perceptron.getSetGeneric("C:\\Users\\IssacRicardez\\Desktop\\Tweet.arff");
 		
 		return training;
 	}
@@ -23,7 +23,7 @@ public class Perceptron {
 	public static Instances getTestingSet()
 	{
 		if(testing == null)
-			testing =  Perceptron.getSetGeneric("C:\\Users\\juanf\\Desktop\\EvaluarTweet.arff");
+			testing =  Perceptron.getSetGeneric("C:\\Users\\IssacRicardez\\Desktop\\EvaluarTweet.arff");
 		
 		return testing;
 	}
