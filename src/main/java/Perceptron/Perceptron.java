@@ -1,21 +1,29 @@
 package Perceptron;
 
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import weka.classifiers.Evaluation;
 import weka.classifiers.functions.MultilayerPerceptron;
 import weka.core.Instances;
+//import weka.classifiers.Evaluation;
 
 public class Perceptron {
+	// Se obtiene el current PATH
+	public static Path currentRelativePath = Paths.get("");
+	public static String currentPath = currentRelativePath.toAbsolutePath().toString();
 
 	static Instances training = null;
 	static Instances testing = null;
+	static Instances predicting = null;
 
 	public static Instances getTrainingSet()
 	{
 		if(training == null)
-			training = Perceptron.getSetGeneric("C:\\Users\\juanf\\Desktop\\Tweet.arff");
+			training = Perceptron.getSetGeneric(currentPath + "/Tweet.arff");
 		
 		return training;
 	}
@@ -23,9 +31,16 @@ public class Perceptron {
 	public static Instances getTestingSet()
 	{
 		if(testing == null)
-			testing =  Perceptron.getSetGeneric("C:\\Users\\juanf\\Desktop\\EvaluarTweet.arff");
+			testing =  Perceptron.getSetGeneric(currentPath + "/EvaluarTweet.arff");
 		
 		return testing;
+	}
+	
+	public static Instances getPredictingSet() {
+		if(predicting == null)
+			predicting =  Perceptron.getSetGeneric(currentPath+ "/PredecirTweet.arff");
+		
+		return predicting;
 	}
 	
 	public static Instances getSetGeneric(String filepath)
@@ -43,10 +58,9 @@ public class Perceptron {
 		}
 	}
 	
-	public double simpleWekaTrain(String hiddenLayers, double learningRate, double momentum, int trainingTime)
+	public String simpleWekaSolve(String hiddenLayers, double learningRate, double momentum, int trainingTime)
 	{
 		try{
-			
 			//Reading training arff or csv file
 			Instances training = Perceptron.getTrainingSet();
 
@@ -58,11 +72,24 @@ public class Perceptron {
 			mlp.setHiddenLayers(hiddenLayers);
 			mlp.buildClassifier(training);
 			
-			Instances testing = Perceptron.getTestingSet();
-			Evaluation eval = new Evaluation(testing);
-		    eval.evaluateModel(mlp, testing);
-		    System.out.println(eval);
-		    return (1 - eval.errorRate()); //Printing Training Mean root squared Error
+			Instances predicting = Perceptron.getPredictingSet();
+			Instances predicteddata = new Instances(predicting);
+			
+			// Prediccion de datos
+			for (int i = 0; i < predicting.numInstances(); i++) {
+				double clsLabel = mlp.classifyInstance(predicting.instance(i));
+				predicteddata.instance(i).setClassValue(clsLabel);
+			}
+			
+			// Escritura en archivo
+			BufferedWriter writer = new BufferedWriter(new FileWriter(currentPath+"/ResultadosBancomer.arff"));
+			writer.write(predicteddata.toString());
+			writer.newLine();
+			writer.flush();
+			writer.close();
+			
+			// Regresa la categoria que se predijo
+			return predicteddata.toString();
 		}
 		catch(Exception ex){
 			ex.printStackTrace();

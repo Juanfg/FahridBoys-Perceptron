@@ -1,0 +1,66 @@
+@relation Bancomer
+
+@attribute 'accidente' numeric
+@attribute 'amparada' numeric
+@attribute 'audi' numeric
+@attribute 'auto' numeric
+@attribute 'automovil' numeric
+@attribute 'bmw' numeric
+@attribute 'cancer' numeric
+@attribute 'carro' numeric
+@attribute 'casa' numeric
+@attribute 'choque' numeric
+@attribute 'coche' numeric
+@attribute 'compre' numeric
+@attribute 'credito' numeric
+@attribute 'daño' numeric
+@attribute 'desamparada' numeric
+@attribute 'desastre' numeric
+@attribute 'dinero' numeric
+@attribute 'enfermedad' numeric
+@attribute 'familia' numeric
+@attribute 'fuego' numeric
+@attribute 'hogar' numeric
+@attribute 'honda' numeric
+@attribute 'incendio' numeric
+@attribute 'jetta' numeric
+@attribute 'kawasaki' numeric
+@attribute 'mitsubishi' numeric
+@attribute 'moto' numeric
+@attribute 'motocicleta' numeric
+@attribute 'muerte' numeric
+@attribute 'necesidad' numeric
+@attribute 'necesito' numeric
+@attribute 'nissan' numeric
+@attribute 'nueva' numeric
+@attribute 'percance' numeric
+@attribute 'presta' numeric
+@attribute 'prestamo' numeric
+@attribute 'prestar' numeric
+@attribute 'presto' numeric
+@attribute 'quiero' numeric
+@attribute 'robo' numeric
+@attribute 'salud' numeric
+@attribute 'seguro' numeric
+@attribute 'sismo' numeric
+@attribute 'suzuki' numeric
+@attribute 'temblor' numeric
+@attribute 'terceros' numeric
+@attribute 'terminal' numeric
+@attribute 'terremoto' numeric
+@attribute 'toyota' numeric
+@attribute 'vida' numeric
+@attribute 'vivienda' numeric
+@attribute 'volkswagen' numeric
+@attribute 'voltaje' numeric
+@attribute 'yamaha' numeric
+@attribute 'class' {seguro_vida, seguro_hogar, seguro_coche, seguro_moto, credito_hipotecario, credito_personal, credito_coche, credito_moto}
+@data
+0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, credito_coche
+0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, credito_hipotecario
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, credito_moto
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, credito_personal
+1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, seguro_coche
+0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, seguro_hogar
+1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, seguro_moto
+1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, seguro_vida 
