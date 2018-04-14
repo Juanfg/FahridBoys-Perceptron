@@ -21,7 +21,7 @@ public class TweetController {
     public Tweet index(
     		@RequestParam(value = "text", required = false) String tweets, 
     		@RequestParam(value = "lat", required = false) String latitud, 
-    		@RequestParam(value = "lng", required = false) String longitud) {
+    		@RequestParam(value = "lon", required = false) String longitud) {
     	String tweet = ArffFormat.fixString(tweets);
     	boolean prospect = ArffFormat.formatFile("PredecirTweet.arff", tweet);
     	System.out.println(tweet);

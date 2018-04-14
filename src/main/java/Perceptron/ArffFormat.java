@@ -48,7 +48,7 @@ public class ArffFormat {
             //exception handling left as an exercise for the reader
         }
         
-        if(countOfWords > 1) {
+        if(countOfWords > 0) {
         	return true;
         }
         
